@@ -1,0 +1,22 @@
+{
+    "model": "logistic_regression",
+    "dataset": "validation",
+    "accuracy": 0.9512195121951219,
+    "precision": 0.8823529411764706,
+    "recall": 1.0,
+    "f1_score": 0.9375,
+    "false_positive_rate": 0.07692307692307693,
+    "false_negative_rate": 0.0,
+    "specificity": 0.9230769230769231,
+    "average_latency_ms": 0.5804573174384309,
+    "confusion_matrix": [
+        [
+            48,
+            4
+        ],
+        [
+            0,
+            30
+        ]
+    ]
+}
