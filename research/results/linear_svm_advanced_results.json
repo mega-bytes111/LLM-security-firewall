@@ -8,7 +8,7 @@
     "false_positive_rate": 0.07692307692307693,
     "false_negative_rate": 0.03333333333333333,
     "specificity": 0.9230769230769231,
-    "average_latency_ms": 0.6002292690781604,
+    "average_latency_ms": 0.8327548776145616,
     "confusion_matrix": [
         [
             48,

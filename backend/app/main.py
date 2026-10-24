@@ -1,8 +1,13 @@
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
+# ==========================================================
 # Import Security Detection Modules
+# ==========================================================
+
 from app.detection.rule_detector import detect_rule_based
+from app.detection.transformer_detector import detect_transformer
+
 from app.risk_engine.risk_scoring import calculate_risk_level
 from app.risk_engine.decision_engine import make_security_decision
 
@@ -14,7 +19,7 @@ from app.risk_engine.decision_engine import make_security_decision
 app = FastAPI(
     title="AI-Based LLM Security Firewall",
     description="Detection and Mitigation of Prompt Injection and Jailbreak Attacks",
-    version="1.1.0"
+    version="1.2.0"
 )
 
 
@@ -28,7 +33,7 @@ def home():
         "project": "AI-Based LLM Security Firewall",
         "status": "running",
         "message": "Security Framework API is active",
-        "version": "1.1.0"
+        "version": "1.2.0"
     }
 
 
@@ -59,7 +64,7 @@ class PromptRequest(BaseModel):
 
 
 # ==========================================================
-# Prompt Security Analysis Endpoint
+# Rule-Based Prompt Security Analysis Endpoint
 # ==========================================================
 
 @app.post("/analyze")
@@ -87,4 +92,25 @@ def analyze_prompt(request: PromptRequest):
         "decision": decision,
         "matched_rules": detection_result["matched_rules"],
         "detection_method": "rule_based"
+    }
+
+
+# ==========================================================
+# Transformer-Based Prompt Security Analysis Endpoint
+# ==========================================================
+
+@app.post("/analyze/transformer")
+def analyze_transformer(request: PromptRequest):
+
+    # STEP 1: DistilBERT-Based Attack Detection
+    detection_result = detect_transformer(request.prompt)
+
+    # STEP 2: Return Transformer Detection Results
+    return {
+        "prompt": request.prompt,
+        "attack_detected": detection_result["attack_detected"],
+        "attack_type": detection_result["attack_type"],
+        "confidence": detection_result["confidence"],
+        "malicious_probability": detection_result["malicious_probability"],
+        "detection_method": detection_result["detection_method"]
     }

@@ -28,3 +28,7 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Dataset Files
+ml/datasets/raw/
+ml/datasets/processed/
