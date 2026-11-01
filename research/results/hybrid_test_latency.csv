@@ -1,0 +1,5 @@
+method,mean_latency_ms
+Rule-based,0.09132586223884197
+Logistic Regression,3.216359482206011
+Linear SVM,1.260156034449806
+DistilBERT,45.65820689634259

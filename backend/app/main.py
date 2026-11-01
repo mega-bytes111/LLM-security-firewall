@@ -7,10 +7,10 @@ from pydantic import BaseModel, Field
 
 from app.detection.rule_detector import detect_rule_based
 from app.detection.transformer_detector import detect_transformer
-
+from app.detection.logistic_detector import detect_logistic
 from app.risk_engine.risk_scoring import calculate_risk_level
 from app.risk_engine.decision_engine import make_security_decision
-
+from app.detection.hybrid_detector import detect_hybrid
 
 # ==========================================================
 # Initialize FastAPI Application
@@ -113,4 +113,38 @@ def analyze_transformer(request: PromptRequest):
         "confidence": detection_result["confidence"],
         "malicious_probability": detection_result["malicious_probability"],
         "detection_method": detection_result["detection_method"]
+    }
+
+# ==========================================================
+# Logistic Regression Prompt Security Analysis Endpoint
+# ==========================================================
+
+@app.post("/analyze/logistic")
+def analyze_logistic(request: PromptRequest):
+
+    detection_result = detect_logistic(request.prompt)
+
+    return {
+        "prompt": request.prompt,
+        "attack_detected": detection_result["attack_detected"],
+        "attack_type": detection_result["attack_type"],
+        "confidence": detection_result["confidence"],
+        "malicious_probability": detection_result["malicious_probability"],
+        "detection_method": detection_result["detection_method"],
+    }
+
+# ==========================================================
+# Hybrid Prompt Security Analysis Endpoint
+# ==========================================================
+
+@app.post("/analyze/hybrid")
+def analyze_hybrid(request: PromptRequest):
+
+    result = detect_hybrid(request.prompt)
+
+    return {
+        "prompt": request.prompt,
+        "evidence": result["evidence"],
+        "policy_result": result["policy_result"],
+        "detection_method": "hybrid",
     }

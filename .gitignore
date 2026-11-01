@@ -3,6 +3,7 @@ venv/
 .venv/
 __pycache__/
 *.pyc
+.pytest_cache/
 
 # Environment variables
 .env
@@ -22,6 +23,9 @@ dist/
 *.pth
 *.safetensors
 
+# Saved model folders, including tokenizer and configuration files
+/ml/saved_models/
+
 # IDE
 .vscode/
 
@@ -29,6 +33,10 @@ dist/
 .DS_Store
 Thumbs.db
 
-# Dataset Files
-ml/datasets/raw/
-ml/datasets/processed/
+# Dataset files
+/ml/datasets/raw/
+/ml/datasets/processed/
+
+# Local validation analysis containing dataset prompts
+/research/results/validation_detector_analysis.csv
+/research/results/validation_model_errors.csv
