@@ -1,0 +1,288 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #e8eefb;
+  background: #080d18;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 40px 24px 20px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.18), transparent 32%),
+    #080d18;
+}
+
+.header,
+.main-grid,
+footer {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 8px;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: 1.35rem;
+}
+
+h3 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.eyebrow {
+  color: #7ea8ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 10px;
+}
+
+.subtitle,
+.small-note {
+  color: #a9b7d0;
+  line-height: 1.6;
+}
+
+.subtitle {
+  margin-bottom: 0;
+}
+
+.header-pill {
+  border: 1px solid #304668;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #b9cfff;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
+  gap: 18px;
+}
+
+.panel {
+  background: rgba(17, 25, 41, 0.96);
+  border: 1px solid #26344c;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.15);
+}
+
+.results-panel {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  border: 1px solid #34445d;
+  border-radius: 10px;
+  background: #0a1220;
+  color: #eff5ff;
+  padding: 14px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #75a0ff;
+  box-shadow: 0 0 0 3px rgba(117, 160, 255, 0.15);
+}
+
+.input-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+  color: #9cacbf;
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.button {
+  border: 1px solid transparent;
+  border-radius: 9px;
+  cursor: pointer;
+  padding: 10px 16px;
+  font-weight: 700;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.button-primary {
+  background: #6f98ff;
+  color: #071023;
+}
+
+.button-secondary {
+  background: transparent;
+  color: #d7e4ff;
+  border-color: #526584;
+}
+
+.notice,
+.error-box {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.notice {
+  background: #13233c;
+  color: #c1d5fa;
+}
+
+.error-box {
+  background: #3b1d26;
+  color: #ffc6d0;
+}
+
+.workflow {
+  padding-left: 22px;
+  color: #d5dff0;
+  line-height: 1.8;
+}
+
+.small-note {
+  font-size: 0.88rem;
+}
+
+.result-heading,
+.detector-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge,
+.flagged,
+.clear {
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 7px 10px;
+}
+
+.badge-block,
+.flagged {
+  color: #ffb5bf;
+  background: #4a202a;
+}
+
+.badge-allow,
+.clear {
+  color: #9ff0c5;
+  background: #143c31;
+}
+
+.detector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.detector-card {
+  border: 1px solid #30415a;
+  border-radius: 12px;
+  padding: 16px;
+  background: #0b1423;
+}
+
+.detector-card p {
+  margin: 12px 0 0;
+  color: #b9c8df;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.response-box {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  background: #0b1423;
+  border: 1px solid #30415a;
+  border-radius: 10px;
+  padding: 16px;
+  line-height: 1.7;
+  color: #dce7f9;
+}
+
+footer {
+  color: #8291a9;
+  font-size: 0.8rem;
+  padding-top: 24px;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .header {
+    flex-direction: column;
+  }
+
+  .main-grid,
+  .detector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .results-panel {
+    grid-column: auto;
+  }
+}
