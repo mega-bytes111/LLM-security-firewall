@@ -40,3 +40,10 @@ Thumbs.db
 # Local validation analysis containing dataset prompts
 /research/results/validation_detector_analysis.csv
 /research/results/validation_model_errors.csv
+
+# Local experiment outputs containing prompts and LLM responses
+/research/results/marker_experiment_details.json
+
+/research/results/marker_expanded_details.json
+
+/research/results/marker_expanded_details_backup.json
